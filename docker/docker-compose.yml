@@ -1,0 +1,18 @@
+version: '3.9'
+name: crypto-homework
+
+services:
+  crypto-postgres:
+    image: postgres:17.0
+    container_name: crypto-postgres
+    ports:
+      - "54330:5432"
+    environment:
+      - POSTGRES_USER=crypto_user
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=crypto_db
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "crypto_db", "-U", "crypto_user" ]
+      timeout: 5s
+      interval: 2s
+      retries: 3

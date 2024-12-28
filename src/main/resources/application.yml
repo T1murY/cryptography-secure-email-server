@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: cryptographyhomework1
+  datasource:
+    url: jdbc:postgresql://localhost:54330/crypto_db
+    username: crypto_user
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: true
+
+auth:
+  jwt:
+    secret-key: 4d993e4d289a22de9cfdb0cb45731f4be8d628690a123f0e6a4ac18ec649a534cd4f5a06a456640aed0f7e8ff17ca16b09cb2d23aeffb19fadf4c8ed5b4c9d2e9a5763f993946555f9fe3c7f20138fd59351d509946f645ce462fe94fac555d720ed8015bba8169dd9d09a012e916f51d5039e2a417686b27813c1c92b679dc098afeceb5aff6fa94e2d51b1d8bce9c56b24cf2c1ff97d6de0e2fdcbcaade8a6241b0af929f7a99b6c5b37fed11b2a0042e4cfd7c8e9709b5dd4283a5da6d6baa8a0e1c6273c930e9226bed6d98c21c82e7ae8eb6a263d7736843303c0d10df57c91497e14b890a74090e02bdcaf91faae07cc2a9d054dae6f989d1a37d36461
+    expiration-time-ms: 86400000
+
+diffie-hellman:
+  generator: 11
+  prime: 23
+
