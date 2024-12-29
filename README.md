@@ -24,7 +24,7 @@ members as follows:
 > to establish a shared secret key and encrypting emails using theAES
 > encryption algorithm.
 >
-> • **TimurYaşar**:
+> • **Timur Yaşar**:
 >
 > Responsible for designing the digital signature mechanism for
 > encrypted messages using the RSA algorithm, as well as generating RSA
