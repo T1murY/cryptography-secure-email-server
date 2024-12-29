@@ -1,8 +1,8 @@
 package com.azimberketimur.cryptographyhomework1.controller
 
+import com.azimberketimur.cryptographyhomework1.model.request.SendEmailRequest
 import com.azimberketimur.cryptographyhomework1.service.EmailService
 import org.springframework.web.bind.annotation.*
-
 
 @RestController
 @RequestMapping("/email")
@@ -17,10 +17,8 @@ class EmailController(
 
     @PostMapping("/sendEmailWithSignature")
     fun sendEmailWithSignature(
-        @RequestParam email: String,
-        @RequestParam message: String,
-        @RequestParam signature: String
-    ) = emailService.sendEmailWithSignature(email, message, signature)
+        @RequestBody sendEmailRequest: SendEmailRequest
+    ) = emailService.sendEmailWithSignature(sendEmailRequest)
 
     @GetMapping("/getMyEmails")
     fun getMyEmails() = emailService.getMyEmails()

@@ -6,6 +6,7 @@ data class EmailResponse(
     val id: UUID,
     val fromUser: String,
     val toUser: String,
+    val date: String,
     val encryptedMessage: String,
     val signature: String,
     val diffieHellmanPublicKey: String,

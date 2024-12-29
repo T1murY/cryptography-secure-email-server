@@ -15,8 +15,8 @@ class AuthController(
     private val authService: AuthService
 ) {
 
-    @GetMapping("/diffie-hellman-info")
-    fun generatorInfo() = authService.diffieHellmanInfo()
+    @GetMapping("/diffie-hellman-params")
+    fun generatorInfo() = authService.diffieHellmanParams()
 
     @PostMapping("/register")
     fun register(

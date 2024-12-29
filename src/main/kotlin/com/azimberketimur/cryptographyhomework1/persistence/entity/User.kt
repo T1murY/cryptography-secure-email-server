@@ -16,9 +16,9 @@ data class User(
     @Column(nullable = false)
     val password: String,
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2048)
     val diffieHellmanExchangeKey: String,
 
-    @Column(nullable = false)
-    val publicKey: String
+    @Column(nullable = false, length = 2048)
+    val rsaPublicKey: String
 )

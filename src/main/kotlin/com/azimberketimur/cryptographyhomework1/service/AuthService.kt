@@ -4,7 +4,7 @@ import com.azimberketimur.cryptographyhomework1.configuration.DiffieHellmanPrope
 import com.azimberketimur.cryptographyhomework1.exception.CredentialException
 import com.azimberketimur.cryptographyhomework1.model.request.LoginRequest
 import com.azimberketimur.cryptographyhomework1.model.request.RegisterRequest
-import com.azimberketimur.cryptographyhomework1.model.response.DiffieHellmanInfoResponse
+import com.azimberketimur.cryptographyhomework1.model.response.DiffieHellmanParamsResponse
 import com.azimberketimur.cryptographyhomework1.model.response.LoginResponse
 import com.azimberketimur.cryptographyhomework1.model.response.RegisterResponse
 import com.azimberketimur.cryptographyhomework1.persistence.entity.User
@@ -23,8 +23,8 @@ class AuthService(
     private val diffieHellmanProperties: DiffieHellmanProperties
 ) {
 
-    fun diffieHellmanInfo(): DiffieHellmanInfoResponse {
-        return DiffieHellmanInfoResponse(
+    fun diffieHellmanParams(): DiffieHellmanParamsResponse {
+        return DiffieHellmanParamsResponse(
             generator = diffieHellmanProperties.generator,
             prime = diffieHellmanProperties.prime
         )
@@ -40,7 +40,7 @@ class AuthService(
                 email = request.email,
                 password = cryptPassword,
                 diffieHellmanExchangeKey = request.diffieHellmanExchangeKey,
-                publicKey = request.publicKey
+                rsaPublicKey = request.rsaPublicKey
             )
         )
 
@@ -51,7 +51,7 @@ class AuthService(
         val user = checkAndGetUser(request.email, request.password)
         val token = jwtService.generateToken(user.id.toString())
 
-        return LoginResponse(user.email, token)
+        return LoginResponse(user.id!!, user.email, token)
     }
 
     private fun checkAndGetUser(email: String, password: String) =

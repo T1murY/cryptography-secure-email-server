@@ -1,6 +1,7 @@
 package com.azimberketimur.cryptographyhomework1.service
 
 import com.azimberketimur.cryptographyhomework1.exception.UserNotFoundException
+import com.azimberketimur.cryptographyhomework1.model.request.SendEmailRequest
 import com.azimberketimur.cryptographyhomework1.model.response.CheckEmailAndGetDiffieHellmanInfoResponse
 import com.azimberketimur.cryptographyhomework1.model.response.EmailResponse
 import com.azimberketimur.cryptographyhomework1.persistence.entity.Email
@@ -33,11 +34,9 @@ class EmailService(
     }
 
     fun sendEmailWithSignature(
-        email: String,
-        message: String,
-        signature: String
+        sendEmailRequest: SendEmailRequest
     ) {
-        val user = userRepository.findByEmail(email) ?: throw UserNotFoundException()
+        val user = userRepository.findByEmail(sendEmailRequest.email) ?: throw UserNotFoundException()
 
         val userId = SecurityContextHolder.getContext().authentication.name as String
         if (userId == user.id.toString()) {
@@ -48,8 +47,8 @@ class EmailService(
             id = null,
             fromUser = UUID.fromString(userId),
             toUser = user.id!!,
-            encryptedMessage = message,
-            signature = signature
+            encryptedMessage = sendEmailRequest.message,
+            signature = sendEmailRequest.signature
         )
 
         emailRepository.save(email)
@@ -69,10 +68,11 @@ class EmailService(
                     id = email.id!!,
                     fromUser.email,
                     user.email,
+                    email.date.toString(),
                     email.encryptedMessage,
                     email.signature,
                     fromUser.diffieHellmanExchangeKey,
-                    fromUser.publicKey
+                    fromUser.rsaPublicKey
                 )
             )
         }

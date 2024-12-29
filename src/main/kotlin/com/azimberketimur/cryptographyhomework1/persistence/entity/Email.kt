@@ -1,6 +1,7 @@
 package com.azimberketimur.cryptographyhomework1.persistence.entity
 
 import jakarta.persistence.*
+import java.time.Instant
 import java.util.*
 
 @Entity
@@ -16,9 +17,12 @@ data class Email(
     @Column(nullable = false)
     val toUser: UUID,
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2048)
     val encryptedMessage: String,
 
+    @Column(nullable = false, length = 2048)
+    val signature: String,
+
     @Column(nullable = false)
-    val signature: String
+    val date: Instant = Instant.now()
 )

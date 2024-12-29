@@ -4,6 +4,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "diffie-hellman")
 data class DiffieHellmanProperties(
-    val generator: Int,
-    val prime: Int,
+    val generator: String,
+    val prime: String,
 )

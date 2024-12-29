@@ -4,5 +4,5 @@ data class RegisterRequest(
     val email: String,
     val password: String,
     val diffieHellmanExchangeKey: String,
-    val publicKey: String
+    val rsaPublicKey: String
 )
