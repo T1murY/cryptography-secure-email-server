@@ -4,7 +4,9 @@
 
 > 1\. Azim TunaAğdaş - 2011051069
 >
-> 2\. Batuhan Berke Yıldırım - 2011051010 3. Timur Yaşar - 2011051057
+> 2\. Batuhan Berke Yıldırım - 2011051010 
+>
+> 3\. Timur Yaşar - 2011051057
 
 **Division** **of** **Responsibilities**
 
@@ -144,7 +146,7 @@ an email to Bob, and Bob views the content of this email.
 
 > **1.** **Step:** Alice and Bob register to the system
 >
-> <img src="./nbauh213.png" style="width:6.5in;height:2.35347in" />When
+> <img src="./images/nbauh213.png" style="width:6.5in;height:2.35347in" />When
 > registering, we also receive key exchange information for Diffie
 > Hellman from the user, so before registration, the user must get the
 > generator and prime number values from the server to create this
@@ -162,7 +164,7 @@ an email to Bob, and Bob views the content of this email.
 > password using SHA256 before storing it in the database to ensure
 > secure storage of user credentials.
 
-<img src="./dfh55uco.png"
+<img src="./images/dfh55uco.png"
 style="width:6.21042in;height:2.98611in" />
 
 > **2.** **Step:** Alice login to the system
@@ -174,7 +176,7 @@ style="width:6.21042in;height:2.98611in" />
 > mechanism ensures that the user remains verified throughout their
 > session.
 
-<img src="./bgou20q0.png"
+<img src="./images/bgou20q0.png"
 style="width:6.375in;height:3.13542in" />
 
 > **3.** **Step:** Alice encrypts the message, creates signature and
@@ -187,7 +189,7 @@ style="width:6.375in;height:3.13542in" />
 > will be used for securely encrypting the email content before it is
 > sent to Bob.
 
-<img src="./1epxpmmt.png" style="width:6.5in;height:2.63333in" />
+<img src="./images/1epxpmmt.png" style="width:6.5in;height:2.63333in" />
 
 > After receiving Bob's Diffie-Hellman public key and using her own
 > Diffie-Hellman private key, Alice creates a shared secret key. This
@@ -195,7 +197,7 @@ style="width:6.375in;height:3.13542in" />
 > 32-byte requirement for the AES-256 algorithm. With this hashed key,
 > Alice encrypts the message she wishes to send using AES.
 >
-> <img src="./jxlh3sd4.png" style="width:6.5in;height:2.60972in" />However,
+> <img src="./images/jxlh3sd4.png" style="width:6.5in;height:2.60972in" />However,
 > while the message is encrypted for security, the authenticity of the
 > sender must also be verified. To address this, a digital signature
 > mechanism is implemented. Alice first hashes the encrypted message
@@ -205,7 +207,7 @@ style="width:6.375in;height:3.13542in" />
 > the server, ensuring that the recipient can verify the source of the
 > message as well as its integrity.
 
-<img src="./vvwgeskn.png" style="width:6.5in;height:2.92431in" />
+<img src="./images/vvwgeskn.png" style="width:6.5in;height:2.92431in" />
 
 > 4\. **Step:** Bob gets his mails from server, then verifies signatures
 > and decrypts messages
@@ -239,40 +241,40 @@ style="width:6.375in;height:3.13542in" />
 > the AES-256 algorithm, allowing him to access the original message
 > content.
 
-<img src="./4cqjafuy.png" style="width:6.5in;height:2.73611in" />
+<img src="./images/4cqjafuy.png" style="width:6.5in;height:2.73611in" />
 
 **Screentshots**
 
 Register and Login
 
-<img src="./502r4lio.png" style="width:6.5in;height:1.94444in" />Passwords
+<img src="./images/502r4lio.png" style="width:6.5in;height:1.94444in" />Passwords
 are stored in hashed format in the db
 
-<img src="./2zt2olv3.png" style="width:6.5in;height:2.1368in" />
+<img src="./images/2zt2olv3.png" style="width:6.5in;height:2.1368in" />
 
 Sending email
 
-<img src="./psflg2vs.png"
+<img src="./images/psflg2vs.png"
 style="width:7.12361in;height:2.12917in" />How emails are stored in the
 database
 
-<img src="./tlysuhpl.png"
+<img src="./images/tlysuhpl.png"
 style="width:6.11458in;height:3.71875in" />
 
 Listing emails
 
 **Code** **examples**
 
-<img src="./xprmhund.png" style="width:6.5in;height:1.66736in" />generator
+<img src="./images/xprmhund.png" style="width:6.5in;height:1.66736in" />generator
 and prime parameters comes from the server
 
-<img src="./12ofrdez.png"
-style="width:5.9375in;height:3.40625in" /><img src="./dglyuuy3.png" style="width:6.5in;height:3.61667in" />
+<img src="./images/12ofrdez.png"
+style="width:5.9375in;height:3.40625in" /><img src="./images/dglyuuy3.png" style="width:6.5in;height:3.61667in" />
 
-<img src="./y0rfgkhm.png"
-style="width:6.50417in;height:3.6125in" /><img src="./ktpxy1pk.png" style="width:6.5in;height:5.69097in" />
+<img src="./images/y0rfgkhm.png"
+style="width:6.50417in;height:3.6125in" /><img src="./images/ktpxy1pk.png" style="width:6.5in;height:5.69097in" />
 
-<img src="./p50u3obn.png" style="width:6.5in;height:3.62986in" />
+<img src="./images/p50u3obn.png" style="width:6.5in;height:3.62986in" />
 
 **Running** **steps**
 
